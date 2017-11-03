@@ -1,4 +1,9 @@
-vault = require("node-vault")(token: "s0me-d3v-t0k3n")
+options =
+  token: 's0me-d3v-t0k3n'
+  #apiVersion: 'v1' #default
+  #endpoint: 'http://127.0.0.1:8200' #default
+
+vault = require("node-vault")(options)
 
 vault
   .write 'secret/hello',
