@@ -5,7 +5,7 @@ Specifically, the 3 files are expected to be present:
 - /tmp/vault/key
 - /tmp/vault/token
 
-`/tmp/vault/address` is an address where Vault will be listening at, in plain text. For example, `http://vault:8200`.
+`/tmp/vault/endpoint` is an address where Vault will be listening at, in plain text. For example, `http://vault:8200`.
 
 `/tmp/vault/key` is a symmetric key for encrypting and decrypting Vault token. It can be generated as follows:
 

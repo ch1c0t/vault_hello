@@ -5,9 +5,11 @@ key = new Key fs.readFileSync '/tmp/vault/key'
 encrypted_token = fs.readFileSync('/tmp/vault/token').toString()
 token = key.decrypt encrypted_token
 
+endpoint = fs.readFileSync('/tmp/vault/endpoint').toString().trim()
+
 options =
   token: token
-  endpoint: fs.readFileSync('/tmp/vault/address').toString().trim()
+  endpoint: endpoint
 
 vault = require("node-vault")(options)
 
