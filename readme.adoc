@@ -1,11 +1,11 @@
 The containers expect to get the Vault credentials from the host's file system.
-Specifically, the 3 files are expected to be present:
+Specifically, these 3 files are expected to be present:
 
-- /tmp/vault/address
+- /tmp/vault/endpoint
 - /tmp/vault/key
 - /tmp/vault/token
 
-`/tmp/vault/endpoint` is an address where Vault will be listening at, in plain text. For example, `http://vault:8200`.
+`/tmp/vault/endpoint` is an address where Vault will be listening at, in plain text. `http://vault:8200` is expected by the containers.
 
 `/tmp/vault/key` is a symmetric key for encrypting and decrypting Vault token. It can be generated as follows:
 
@@ -18,5 +18,6 @@ coffee src/create_key.coffee /tmp/vault/key
 
 [source,bash]
 ----
+coffee src/encrypt_token.coffee [token-in-plain-text] [/path/to/file/for/storing/encrypted_token]
 coffee src/encrypt_token.coffee s0me-d3v-t0k3n /tmp/vault/token
 ----
