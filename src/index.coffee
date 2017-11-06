@@ -1,7 +1,13 @@
+fs = require 'fs'
+
+Key = require './key'
+key = new Key fs.readFileSync '/tmp/vault/key'
+encrypted_token = fs.readFileSync('/tmp/vault/token').toString()
+token = key.decrypt encrypted_token
+
 options =
-  token: process.env.VAULT_DEV_ROOT_TOKEN_ID
-  #apiVersion: 'v1' #default
-  endpoint: 'http://vault:8200'
+  token: token
+  endpoint: fs.readFileSync('/tmp/vault/address').toString().trim()
 
 vault = require("node-vault")(options)
 
@@ -13,4 +19,6 @@ vault
     vault
       .read 'secret/hello'
       .then (result) -> console.log result
+  .then ->
+    console.log vault.delete 'secret/hello'
   .catch console.error
