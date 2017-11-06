@@ -8,4 +8,4 @@ RUN cd /app && npm i
 
 WORKDIR /app
 
-CMD ["pm2-docker", "index.js"]
+CMD ["pm2-docker", "lib/index.js"]
