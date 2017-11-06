@@ -3,7 +3,7 @@
   var options, vault;
 
   options = {
-    token: 's0me-d3v-t0k3n',
+    token: 's0me-d3v-t0k3',
     //apiVersion: 'v1' #default
     endpoint: 'http://vault:8200'
   };
