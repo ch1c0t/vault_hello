@@ -1,5 +1,5 @@
 options =
-  token: 's0me-d3v-t0k3'
+  token: process.env.VAULT_DEV_ROOT_TOKEN_ID
   #apiVersion: 'v1' #default
   endpoint: 'http://vault:8200'
 
